@@ -1,0 +1,25 @@
+repositories:
+  universe/external/cartographer_utils:
+    type: git
+    url: https://github.com/amadeuszsz/cartographer_utils.git
+    version: master
+  universe/external/trajectory_loader:
+    type: git
+    url: https://github.com/amadeuszsz/trajectory_loader.git
+    version: master
+  universe/external/Raceline-Optimization:
+    type: git
+    url: https://github.com/amadeuszsz/Raceline-Optimization.git
+    version: master
+  launcher/f1tenth_launch:
+    type: git
+    url: https://github.com/amadeuszsz/f1tenth_launch.git
+    version: master
+  sensor_kit/external/f1tenth_sensor_kit_launch:
+    type: git
+    url: https://github.com/amadeuszsz/f1tenth_sensor_kit_launch.git
+    version: master
+  vehicle/external/f1tenth_vehicle_launch:
+    type: git
+    url: https://github.com/amadeuszsz/f1tenth_vehicle_launch.git
+    version: master

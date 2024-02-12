@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ -f /home/${USER}/autoware/install/setup.bash ]; then
+    echo "source /home/${USER}/autoware/install/setup.bash" >> /home/${USER}/.bashrc;
+fi
+
+echo 'Startup completed.'
+exec "$@"

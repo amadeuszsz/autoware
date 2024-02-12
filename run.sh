@@ -1,0 +1,14 @@
+rocker --network host --privileged --nvidia --x11 --user --name autoware \
+  	--env="USER" \
+	--env="RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" \
+	--env="CYCLONEDDS_URI=file://$HOME/autoware/cyclonedds_config.xml" \
+	--env="ROS_DOMAIN_ID=32" \
+	--env="ROS_LOCALHOST_ONLY=1" \
+	--env="RCUTILS_COLORIZED_OUTPUT=1" \
+	--env="RCUTILS_CONSOLE_OUTPUT_FORMAT='[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})'" \
+	--volume /dev \
+	--volume $HOME/autoware:$HOME/autoware \
+	--volume $HOME/autoware_map:$HOME/autoware_map \
+	--volume $HOME/autoware_data:$HOME/autoware_data \
+	--volume $HOME/autoware_awsim:$HOME/autoware_awsim \
+	-- ghcr.io/autowarefoundation/autoware-universe:humble-2024.02-cuda-f1tenth

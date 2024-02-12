@@ -1,0 +1,33 @@
+repositories:
+  universe/external/cartographer_utils:
+    type: git
+    url: https://github.com/amadeuszsz/cartographer_utils.git
+    version: master
+  universe/external/trajectory_loader:
+    type: git
+    url: https://github.com/amadeuszsz/trajectory_loader.git
+    version: master
+  launcher/f1tenth_launch:
+    type: git
+    url: https://github.com/amadeuszsz/f1tenth_launch.git
+    version: master
+  sensor_component/external/vesc:
+     type: git
+     url: https://github.com/f1tenth/vesc.git
+     version: ros2
+  sensor_component/external/bluespace_ai_xsens_mti_driver:
+    type: git
+    url: https://github.com/gmsanchez/bluespace_ai_xsens_ros_mti_driver.git
+    version: ros2_0_humble
+  sensor_kit/external/f1tenth_xray_sensor_kit_launch:
+    type: git
+    url: https://github.com/amadeuszsz/f1tenth_xray_sensor_kit_launch.git
+    version: master
+  vehicle/external/f1tenth_xray_vehicle_launch:
+    type: git
+    url: https://github.com/amadeuszsz/f1tenth_xray_vehicle_launch.git
+    version: master
+  vehicle/external/vesc_interface:
+    type: git
+    url: https://github.com/amadeuszsz/vesc_interface.git
+    version: master
