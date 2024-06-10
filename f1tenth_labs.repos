@@ -1,1 +1,5 @@
 repositories:
+    universe/external/obstacle_avoidance_node:
+        type: git 
+        url: https://github.com/zelmanowskamaja/obstacle_avoidance_node.git
+        version: main
