@@ -1,1 +1,17 @@
 repositories:
+  universe/external/cones_detect:
+    type: git
+    url: https://github.com/BartlomiejGasyna/cones_detect.git
+    version: master
+  universe/external/cones_interfaces:
+    type: git
+    url: https://github.com/BartlomiejGasyna/cones_interfaces.git
+    version: master
+  universe/external/cones_localization:
+    type: git
+    url: https://github.com/pawel-gawron/cones_localization.git
+    version: master
+  universe/external/cone_planner:
+    type: git
+    url: https://github.com/arafalski/cone_planner.git
+    version: main
