@@ -1,1 +1,5 @@
 repositories:
+  universe/external/yolo_racecar_detector:
+    type: git
+    url: https://github.com/Krawus/yolo_racecar_detector.git
+    version: main
