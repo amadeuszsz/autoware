@@ -1,8 +1,4 @@
 repositories:
-  launcher/f1tenth_launch:
-    type: git
-    url: https://github.com/marcelq11/f1tenth_launch.git
-    version: assigment
   universe/autoware.universe/control/eadrc_longitudinal_controller:
     type: git
     url: https://github.com/marcelq11/eadrc_longitudinal_controller.git
