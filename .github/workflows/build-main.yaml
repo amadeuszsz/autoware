@@ -4,6 +4,13 @@ on:
   schedule:
     - cron: 0 12 * * *
   workflow_dispatch:
+    inputs:
+      artifacts-destination:
+        type: choice
+        description: Built images will be saved as tarball
+        options:
+          - tarball
+        default: tarball
 
 jobs:
   load-env:
@@ -12,36 +19,61 @@ jobs:
   build-main:
     needs: load-env
     runs-on: ubuntu-latest
-    container: ${{ needs.load-env.outputs.base-image }}
+    strategy:
+      fail-fast: false
+      matrix:
+        name:
+          - no-cuda
+          - cuda
+        include:
+          - name: no-cuda
+            base_image_env: base_image
+            lib_dir: x86_64
+            setup-args: --no-nvidia
+            additional-tag-suffix: ""
+          - name: cuda
+            base_image_env: base_image
+            lib_dir: x86_64
+            additional-tag-suffix: -cuda
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Run setup script
+      - name: Install vcstool
         run: |
-          ./setup-dev-env.sh -y
+          sudo apt-get -y update
+          sudo apt-get -y install python3-pip
+          pip install --no-cache-dir vcstool
 
       - name: Set git config
         uses: autowarefoundation/autoware-github-actions/set-git-config@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Free disk space
+        uses: ./.github/actions/free-disk-space
+
       - name: Run vcs import
         run: |
           mkdir src
           vcs import src < autoware.repos
 
-      - name: Run vcs export
-        run: |
-          vcs export --exact src || true
+      - name: Build 'autoware-universe'
+        uses: ./.github/actions/docker-build-and-push
+        with:
+          bake-target: autoware
+          build-args: |
+            *.platform=linux/amd64
+            *.args.ROS_DISTRO=${{ needs.load-env.outputs.rosdistro }}
+            *.args.BASE_IMAGE=${{ needs.load-env.outputs[format('{0}', matrix.base_image_env)] }}
+            *.args.SETUP_ARGS=${{ matrix.setup-args }}
+            *.args.LIB_DIR=${{ matrix.lib_dir }}
+            *.cache-from=type=registry,ref=ghcr.io/${{ github.repository }}:buildcache-${{ matrix.name }}-amd64
+            *.cache-to=type=registry,ref=ghcr.io/${{ github.repository }}:buildcache-${{ matrix.name }}-amd64,mode=max
+          tag-suffix: ${{ matrix.additional-tag-suffix }}-amd64
+          tag-prefix: ${{ needs.load-env.outputs.rosdistro }}
+          allow-push: false
 
-      - name: Run rosdep install
+      - name: Show disk space
         run: |
-          sudo apt-get -y update
-          rosdep update
-          DEBIAN_FRONTEND=noninteractive rosdep install -y --from-paths src --ignore-src --rosdistro ${{ needs.load-env.outputs.rosdistro }}
-
-      - name: Build
-        run: |
-          . /opt/ros/${{ needs.load-env.outputs.rosdistro }}/setup.sh
-          colcon build --event-handlers console_cohesion+ --cmake-args -DCMAKE_BUILD_TYPE=Release
+          df -h
