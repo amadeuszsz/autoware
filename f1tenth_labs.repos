@@ -1,9 +1,5 @@
 repositories:
-  launcher/f1tenth_launch:
-    type: git
-    url: https://github.com/MikolajZielinski/f1tenth_launch.git
-    version: master
-  lidar_trajectory:
+  universe/external/lidar_trajectory:
     type: git
     url: https://github.com/MikolajZielinski/lidar_trajectory.git
     version: master
