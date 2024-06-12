@@ -21,8 +21,8 @@ repositories:
     version: 1e8b6d234e2690c9da386f006bb60835cdccddfd
   universe/autoware.universe:
     type: git
-    url: https://github.com/autowarefoundation/autoware.universe.git
-    version: 742f44a5e647807d164740dd1185066ed363b6fb
+    url: https://github.com/JigSaw16/autoware.universe.git
+    version: feature/ml_controller
   universe/external/tier4_ad_api_adaptor:
     type: git
     url: https://github.com/tier4/tier4_ad_api_adaptor.git
