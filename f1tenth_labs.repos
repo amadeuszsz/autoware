@@ -1,1 +1,5 @@
 repositories:
+  universe/external/lqr_lateral_controller:
+    type: git
+    url: https://github.com/mgmike1011/lqr_lateral_controller.git
+    version: main
