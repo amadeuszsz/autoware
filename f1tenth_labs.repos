@@ -1,5 +1,5 @@
 repositories:
-  universe/autoware.universe/control/lqr_lateral_controller:
+  universe/external/lqr_lateral_controller:
     type: git
     url: https://github.com/mgmike1011/lqr_lateral_controller.git
     version: main
