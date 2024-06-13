@@ -2,13 +2,13 @@ repositories:
   universe/external/obstacle_dstar:
     type: git
     url: https://github.com/aziemnicki/obstacle_dstar.git
-    version: master
+    version: main
   universe/external/obstacle_astar:
     type: git
     url: https://github.com/aziemnicki/obstacle_astar.git
-    version: master
+    version: main
   universe/external/obstacle_detection:
     type: git
     url: https://github.com/aziemnicki/obstacle_detection.git
-    version: master
+    version: main
     
