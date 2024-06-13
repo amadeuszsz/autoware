@@ -1,1 +1,5 @@
 repositories:
+  universe/external/control/eadrc_longitudinal_controller:
+    type: git
+    url: https://github.com/marcelq11/eadrc_longitudinal_controller.git
+    version: main
