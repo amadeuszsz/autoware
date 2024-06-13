@@ -1,9 +1,9 @@
 repositories:
-    env_perceiver:
+    universe/external/env_perceiver:
         type: git
-        url: https://github.com/Kacper-So/env_perceiver
+        url: https://github.com/Kacper-So/env_perceiver/env_perceiver.git
         version: main
-    traj_selector:
+    universe/external/traj_selector:
         type: git
-        url: https://github.com/Kacper-So/traj_selector
+        url: https://github.com/Kacper-So/traj_selector/traj_selector.git
         version: main
