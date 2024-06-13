@@ -1,1 +1,13 @@
 repositories:
+  universe/external/control/ml_controller:
+    type: git
+    url: https://github.com/Gandhi444/ml_controller.git
+    version: main
+  universe/external/nc-net
+    type: git
+    url: https://github.com/SzymKwiatkowski/nc-net.git
+    version: master
+  universe/external/f1tenth_awsim_data_recorder:
+    type: git
+    url: https://github.com/SzymKwiatkowski/f1tenth_awsim_data_recorder.git
+    version: master
