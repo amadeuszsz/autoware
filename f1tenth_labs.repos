@@ -3,11 +3,11 @@ repositories:
     type: git
     url: https://github.com/Gandhi444/ml_controller.git
     version: main
-  lab_tools/nc-net
+  universe/external/nc-net
     type: git
     url: https://github.com/SzymKwiatkowski/nc-net.git
     version: master
-  lab_tools/f1tenth_awsim_data_recorder:
+  universe/external/f1tenth_awsim_data_recorder:
     type: git
     url: https://github.com/SzymKwiatkowski/f1tenth_awsim_data_recorder.git
     version: master
