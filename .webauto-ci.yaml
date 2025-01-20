@@ -16,6 +16,7 @@ artifacts:
           repositories_files:
             - autoware.repos
             - simulator.repos
+            - autoware-nightly.repos
           import_path: src
       environment_variables:
         AUTOWARE_PATH: /opt/autoware
